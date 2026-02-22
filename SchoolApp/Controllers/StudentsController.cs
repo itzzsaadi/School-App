@@ -19,5 +19,13 @@ namespace SchoolApp.Controllers
             var students = await _context.Students.ToListAsync();
             return Json(students);
         }
+        // Add Student
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] Student student)
+        {
+            _context.Students.Add(student);
+            await _context.SaveChangesAsync();
+            return Json(student);
+        }
     }
 }
