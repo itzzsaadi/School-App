@@ -2,10 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using SchoolApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var connectionString = Environment.GetEnvironmentVariable("DB_PASSWORD");
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+DotNetEnv.Env.Load();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
