@@ -31,6 +31,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+// HTTP Method Override middleware ko add karo
+app.UseHttpMethodOverride();
 
 app.UseAuthorization();
 
