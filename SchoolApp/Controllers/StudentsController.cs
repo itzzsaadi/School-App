@@ -44,5 +44,18 @@ namespace SchoolApp.Controllers
             await _context.SaveChangesAsync();
             return Json(existing);
         }
+        // Delete Student
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var student = await _context.Students.FindAsync(id);
+
+            if (student == null)
+                return NotFound("Student nahi mila!");
+
+            _context.Students.Remove(student);
+            await _context.SaveChangesAsync();
+            return Json("Student delete ho gaya!");
+        }
     }
 }
