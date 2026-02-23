@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "EMIZ50TtIME=",
+  "dgSpecHash": "e8COjvn2pbQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\saadn\\Desktop\\Learning\\Database\\Database-Migration\\SchoolApp\\SchoolApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\saadn\\.nuget\\packages\\dotnetenv\\3.1.1\\dotnetenv.3.1.1.nupkg.sha512",
     "C:\\Users\\saadn\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\saadn\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\10.0.3\\microsoft.aspnetcore.identity.entityframeworkcore.10.0.3.nupkg.sha512",
     "C:\\Users\\saadn\\.nuget\\packages\\microsoft.build.framework\\18.0.2\\microsoft.build.framework.18.0.2.nupkg.sha512",
     "C:\\Users\\saadn\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.11.0\\microsoft.codeanalysis.analyzers.3.11.0.nupkg.sha512",
     "C:\\Users\\saadn\\.nuget\\packages\\microsoft.codeanalysis.common\\5.0.0\\microsoft.codeanalysis.common.5.0.0.nupkg.sha512",

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SchoolApp.Models;
 
@@ -6,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 DotNetEnv.Env.Load();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
 var host = Environment.GetEnvironmentVariable("DB_HOST");
 var port = Environment.GetEnvironmentVariable("DB_PORT");
@@ -33,6 +37,8 @@ app.UseRouting();
 
 // HTTP Method Override middleware ko add karo
 app.UseHttpMethodOverride();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
