@@ -31,7 +31,7 @@ namespace SchoolApp.Controllers
         {
             if (!ModelState.IsValid)
                 return View(student);
-                
+
             _context.Students.Add(student);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
@@ -43,8 +43,10 @@ namespace SchoolApp.Controllers
             var student = await _context.Students.FindAsync(id);
 
             if (student == null)
-                return NotFound("Student nahi mila!");
-
+            {
+                TempData["Error"] = "TRUE";
+                return RedirectToAction("Index");
+            }
             return View(student);
         }
         // POST - Update save karo
@@ -54,8 +56,10 @@ namespace SchoolApp.Controllers
             var existing = await _context.Students.FindAsync(id);
 
             if (existing == null)
-                return NotFound("Student nahi mila!");
-
+            {
+                TempData["Error"] = "TRUE";
+                return RedirectToAction("Index");
+            }
             existing.Name = student.Name;
             existing.Email = student.Email;
             existing.Age = student.Age;
@@ -71,7 +75,10 @@ namespace SchoolApp.Controllers
             var student = await _context.Students.FindAsync(id);
 
             if (student == null)
-                return NotFound("Student nahi mila!");
+            {
+                TempData["Error"] = "TRUE";
+                return RedirectToAction("Index");
+            }
 
             return View(student);
         }
@@ -82,7 +89,14 @@ namespace SchoolApp.Controllers
             var existing = await _context.Students.FindAsync(id);
 
             if (existing == null)
-                return NotFound("Student nahi mila!");
+            {
+                TempData["Error"] = "TRUE";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["Delete"] = "Deleted";
+            }
 
             _context.Students.Remove(existing);
             await _context.SaveChangesAsync();

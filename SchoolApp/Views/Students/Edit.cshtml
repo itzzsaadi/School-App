@@ -13,18 +13,22 @@
         <div>
             <label>Name:</label>
             <input asp-for="Name" />
+            <span asp-validation-for="Name" style="color:red"></span>
         </div>
         <div>
             <label>Email:</label>
             <input asp-for="Email" />
+            <span asp-validation-for="Email" style="color:red"></span>
         </div>
         <div>
             <label>Age:</label>
             <input asp-for="Age" />
+            <span asp-validation-for="Age" style="color:red"></span>
         </div>
         <div>
             <label>Phone:</label>
             <input asp-for="PhoneNumber" />
+            <span asp-validation-for="PhoneNumber" style="color:red"></span>
         </div>
         <button type="submit">Update Karo</button>
     </form>

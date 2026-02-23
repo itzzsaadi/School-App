@@ -114,7 +114,6 @@ C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\scopedcss\projectbundle\SchoolApp.bundle.scp.css
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\compressed\66ge2ivv9s-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\compressed\4zehdbl3uv-{0}-61n19gt1b8-61n19gt1b8.gz
-C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\compressed\snzxafazuf-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\compressed\zb5fcoh2mh-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\compressed\vxo2i5ej74-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\compressed\gqep85cor4-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -189,3 +188,4 @@ C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\ref\SchoolApp.dll
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\DotNetEnv.dll
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\Sprache.dll
+C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\compressed\snzxafazuf-{0}-tfsnfyfo23-tfsnfyfo23.gz

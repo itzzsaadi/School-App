@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Naya Student Add Karo</h1>
-    
+
     <form asp-action="Create" method="post">
         <div>
             <label>Name:</label>
@@ -27,10 +27,12 @@
         <div>
             <label>Phone:</label>
             <input asp-for="PhoneNumber" />
+            <span asp-validation-for="PhoneNumber" style="color:rgb(0, 0, 0)"></span>
         </div>
         <button type="submit">Add Student</button>
     </form>
-    
+
     <a href="/Students">Wapas List Pe Jao</a>
 </body>
+
 </html>
