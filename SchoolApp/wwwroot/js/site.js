@@ -30,3 +30,16 @@ function confirmDelete() {
     alert("Student Deleted Successfully.");
     redirectToIndex(); // Redirect to Index page after deletion
 }
+
+// <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
+function togglePassword() {
+    var passwordField = document.getElementById("Password");
+    var confirmPasswordField = document.getElementById("ConfirmPassword");
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        confirmPasswordField.type = "text";
+    } else {
+        passwordField.type = "password";
+        confirmPasswordField.type = "password";
+    }
+}

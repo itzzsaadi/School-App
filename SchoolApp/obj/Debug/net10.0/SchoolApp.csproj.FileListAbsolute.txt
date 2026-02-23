@@ -188,5 +188,5 @@ C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\ref\SchoolApp.dll
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\DotNetEnv.dll
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\Sprache.dll
-C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\compressed\snzxafazuf-{0}-ded6nv8hmg-ded6nv8hmg.gz
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\compressed\snzxafazuf-{0}-kfed5h2mei-kfed5h2mei.gz

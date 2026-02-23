@@ -37,47 +37,56 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Students"
-                                           asp-action="Index">List</a></li>
-                                    <li><a class="dropdown-item" asp-area="" asp-controller="Students"
-                                               asp-action="Create">Add New</a></li>
-                                        <li><a class="dropdown-item text-dark" href="javascript:void(0);"
-                                                   onclick="promptForId('Edit')">Edit</a></li>
-                                            <li><a class="dropdown-item text-dark" href="javascript:void(0);"
-                                                       onclick="promptForId('Delete')">Delete</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-                    </header>
-                    <div class="container">
-                        <main role="main" class="pb-3">
-                            @RenderBody()
-                            @if (TempData["Error"] != null && TempData["Error"].ToString() == "TRUE")
-                            {
-                                <script>studentnotfound();</script>
-                            }
-                            else if (TempData["Delete"] != null && TempData["Delete"].ToString() == "Deleted")
-                            {
-                                <script>confirmDelete();</script>
-                            }
-                            
-                        </main>
-                    </div>
+                                           asp-action="Index">List</a>
+                                </li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Students"
+                                           asp-action="Create">Add New</a>
+                                </li>
+                                <li><a class="dropdown-item text-dark" href="javascript:void(0);"
+                                           onclick="promptForId('Edit')">Edit</a>
+                                </li>
+                                <li><a class="dropdown-item text-dark" href="javascript:void(0);"
+                                           onclick="promptForId('Delete')">Delete</a>
+                                </li>
+                            </ul>
+                            <li class="nav-item ms-auto">
+                                <form asp-controller="Account" asp-action="Logout" method="post">
+                                    <button type="submit">Logout</button>
+                                </form>
+                            </li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+            @if (TempData["Error"] != null && TempData["Error"].ToString() == "TRUE")
+            {
+                <script>studentnotfound();</script>
+            }
+            else if (TempData["Delete"] != null && TempData["Delete"].ToString() == "Deleted")
+            {
+                <script>confirmDelete();</script>
+            }
 
-                    <footer class="border-top footer text-muted">
-                        <div class="container">
-                            &copy; 2026 - SchoolApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </div>
-                    </footer>
-                    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-                    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-                    <script src="~/js/site.js" asp-append-version="true"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
-                    <script
-                    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
-                    @await RenderSectionAsync("Scripts", required: false)
-                </body>
+        </main>
+    </div>
 
-            </html>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - SchoolApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

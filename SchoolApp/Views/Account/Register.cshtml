@@ -1,0 +1,42 @@
+@model SchoolApp.Models.RegisterViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h1>Naya Account Banao</h1>
+
+    <form asp-action="Register" method="post">
+        <div>
+            <label>Email:</label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email" style="color:red"></span>
+        </div>
+        <div>
+            <label>Password:</label>
+            <input asp-for="Password" type="password" />
+            <input type="checkbox" id="showPassword" onclick="togglePassword()"> Show Password
+            <span asp-validation-for="Password" style="color:red"></span>
+        </div>
+        <div>
+            <label>Confirm Password:</label>
+            <input asp-for="ConfirmPassword" type="password" id = "ConfirmPassword"/>
+            <span asp-validation-for="ConfirmPassword" style="color:red"></span>
+        </div>
+        <button type="submit">Register Karo</button>
+    </form>
+    <a href="/Account/Login">Pehle se account hai? Login karo!</a>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div style="color:red">
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <p>@error.ErrorMessage</p>
+            }
+        </div>
+    }
+</body>
+
+</html>

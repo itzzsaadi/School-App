@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using SchoolApp.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SchoolApp.Controllers
 {
+    [Authorize]
     public class StudentsController : Controller
     {
         private readonly AppDbContext _context;
