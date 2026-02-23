@@ -1,0 +1,34 @@
+@model SchoolApp.Models.Student
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Edit Karo</title>
+</head>
+<body>
+    <h1>Student Edit Karo</h1>
+    
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div>
+            <label>Name:</label>
+            <input asp-for="Name" />
+        </div>
+        <div>
+            <label>Email:</label>
+            <input asp-for="Email" />
+        </div>
+        <div>
+            <label>Age:</label>
+            <input asp-for="Age" />
+        </div>
+        <div>
+            <label>Phone:</label>
+            <input asp-for="PhoneNumber" />
+        </div>
+        <button type="submit">Update Karo</button>
+    </form>
+    
+    <a href="/Students">Wapas List Pe Jao</a>
+</body>
+</html>

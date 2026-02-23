@@ -17,19 +17,39 @@ namespace SchoolApp.Controllers
         public async Task<IActionResult> Index()
         {
             var students = await _context.Students.ToListAsync();
-            return Json(students);
+            return View(students);
+        }
+        // GET - Form dikhao
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
         }
         // Add Student
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Student student)
+        public async Task<IActionResult> Create(Student student)
         {
+            if (!ModelState.IsValid)
+                return View(student);
+                
             _context.Students.Add(student);
             await _context.SaveChangesAsync();
-            return Json(student);
+            return RedirectToAction("Index");
         }
-        // Update Student
-        [HttpPut]
-        public async Task<IActionResult> Update(int id, [FromBody] Student student)
+        // GET - Edit form dikhao
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var student = await _context.Students.FindAsync(id);
+
+            if (student == null)
+                return NotFound("Student nahi mila!");
+
+            return View(student);
+        }
+        // POST - Update save karo
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, Student student)
         {
             var existing = await _context.Students.FindAsync(id);
 
@@ -42,10 +62,10 @@ namespace SchoolApp.Controllers
             existing.PhoneNumber = student.PhoneNumber;
 
             await _context.SaveChangesAsync();
-            return Json(existing);
+            return RedirectToAction("Index");
         }
-        // Delete Student
-        [HttpDelete]
+        // GET - Confirmation page dikhao
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var student = await _context.Students.FindAsync(id);
@@ -53,9 +73,20 @@ namespace SchoolApp.Controllers
             if (student == null)
                 return NotFound("Student nahi mila!");
 
-            _context.Students.Remove(student);
+            return View(student);
+        }
+        // POST - Actually delete karo
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id, Student student)
+        {
+            var existing = await _context.Students.FindAsync(id);
+
+            if (existing == null)
+                return NotFound("Student nahi mila!");
+
+            _context.Students.Remove(existing);
             await _context.SaveChangesAsync();
-            return Json("Student delete ho gaya!");
+            return RedirectToAction("Index");
         }
     }
 }

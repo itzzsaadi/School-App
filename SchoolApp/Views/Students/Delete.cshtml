@@ -1,0 +1,23 @@
+@model SchoolApp.Models.Student
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Delete Karo</title>
+</head>
+<body>
+    <h1>Kya Sach Mein Delete Karna Hai?</h1>
+    
+    <p>Name: @Model.Name</p>
+    <p>Email: @Model.Email</p>
+    <p>Age: @Model.Age</p>
+    <p>Phone: @Model.PhoneNumber</p>
+    
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" name="_method" value="DELETE" />
+        <button type="submit">Haan, Delete Karo!</button>
+        <a href="/Students">Nahi, Wapas Jao</a>
+    </form>
+</body>
+</html>

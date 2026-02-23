@@ -1,0 +1,36 @@
+@model SchoolApp.Models.Student
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Naya Student Add Karo</title>
+</head>
+<body>
+    <h1>Naya Student Add Karo</h1>
+    
+    <form asp-action="Create" method="post">
+        <div>
+            <label>Name:</label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name" style="color:red"></span>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email" style="color:red"></span>
+        </div>
+        <div>
+            <label>Age:</label>
+            <input asp-for="Age" />
+            <span asp-validation-for="Age" style="color:red"></span>
+        </div>
+        <div>
+            <label>Phone:</label>
+            <input asp-for="PhoneNumber" />
+        </div>
+        <button type="submit">Add Student</button>
+    </form>
+    
+    <a href="/Students">Wapas List Pe Jao</a>
+</body>
+</html>

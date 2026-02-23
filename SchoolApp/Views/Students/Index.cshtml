@@ -1,0 +1,37 @@
+@model List<SchoolApp.Models.Student>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students List</title>
+</head>
+<body>
+    <h1>Students ki List <a href="/Students/Create">Add Student</a></h1>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Email</td>
+                <td>@student.Age</td>
+                <td>@student.PhoneNumber</td>
+                <td>
+                    <a href="/Students/Edit/@student.Id">Edit</a> |
+                    <a href="/Students/Delete/@student.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+
+</html>
