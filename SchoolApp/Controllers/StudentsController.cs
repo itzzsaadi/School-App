@@ -21,12 +21,14 @@ namespace SchoolApp.Controllers
             var students = await _context.Students.ToListAsync();
             return View(students);
         }
+        [Authorize(Roles = "Admin")]
         // GET - Form dikhao
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
+        [Authorize(Roles = "Admin")]
         // Add Student
         [HttpPost]
         public async Task<IActionResult> Create(Student student)
@@ -38,6 +40,7 @@ namespace SchoolApp.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "Admin")]
         // GET - Edit form dikhao
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
@@ -51,6 +54,7 @@ namespace SchoolApp.Controllers
             }
             return View(student);
         }
+        [Authorize(Roles = "Admin")]
         // POST - Update save karo
         [HttpPost]
         public async Task<IActionResult> Edit(int id, Student student)
@@ -70,6 +74,7 @@ namespace SchoolApp.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "Admin")]
         // GET - Confirmation page dikhao
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
@@ -84,6 +89,7 @@ namespace SchoolApp.Controllers
 
             return View(student);
         }
+        [Authorize(Roles = "Admin")]
         // POST - Actually delete karo
         [HttpPost]
         public async Task<IActionResult> Delete(int id, Student student)

@@ -43,3 +43,7 @@ function togglePassword() {
         confirmPasswordField.type = "password";
     }
 }
+// Add a java function showing alert if simple user try to access delete,edit
+function accessDenied() {
+    alert("Access Denied. You do not have permission to perform this action.");
+ }

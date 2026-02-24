@@ -37,6 +37,7 @@ namespace SchoolApp.Controllers
 
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(user, "User"); // User role dega
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 TempData["Success"] = "Account ban gaya! Welcome!";
                 //("Action-Name","Controller-name")
@@ -86,6 +87,12 @@ namespace SchoolApp.Controllers
             await _signInManager.SignOutAsync();
             TempData["Success"] = "Logout successful! See you again!";
             return RedirectToAction("Login", "Account");
+        }
+        // GET - Access Denied
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }

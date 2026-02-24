@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> _signInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,7 +14,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Styles", required: false)
 </head>
-
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -39,6 +41,8 @@
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Students"
                                            asp-action="Index">List</a>
                                 </li>
+                                @if (User.IsInRole("Admin"))
+                                {
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Students"
                                            asp-action="Create">Add New</a>
                                 </li>
@@ -48,6 +52,7 @@
                                 <li><a class="dropdown-item text-dark" href="javascript:void(0);"
                                            onclick="promptForId('Delete')">Delete</a>
                                 </li>
+                                }
                             </ul>
                             <li class="nav-item ms-auto">
                                 <form asp-controller="Account" asp-action="Logout" method="post">
