@@ -9,15 +9,18 @@ namespace SchoolApp.Controllers
     public class StudentsController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly ILogger<StudentsController> _logger;
 
-        public StudentsController(AppDbContext context)
+        public StudentsController(AppDbContext context, ILogger<StudentsController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // READ - Students ki list
         public async Task<IActionResult> Index()
         {
+            _logger.LogInformation("Students list dekhi gayi — {Time}", DateTime.Now);
             var students = await _context.Students.ToListAsync();
             return View(students);
         }
@@ -38,6 +41,7 @@ namespace SchoolApp.Controllers
 
             _context.Students.Add(student);
             await _context.SaveChangesAsync();
+            _logger.LogInformation("Naya student add kiya — {Name}", student.Name);
             return RedirectToAction("Index");
         }
         [Authorize(Roles = "Admin")]
@@ -72,6 +76,7 @@ namespace SchoolApp.Controllers
             existing.PhoneNumber = student.PhoneNumber;
 
             await _context.SaveChangesAsync();
+            _logger.LogInformation("Student update kiya gaya — {Name}", existing.Name);
             return RedirectToAction("Index");
         }
         [Authorize(Roles = "Admin")]
@@ -108,6 +113,7 @@ namespace SchoolApp.Controllers
 
             _context.Students.Remove(existing);
             await _context.SaveChangesAsync();
+            _logger.LogInformation("Student delete kiya gaya — {Name}", existing.Name);
             return RedirectToAction("Index");
         }
     }
