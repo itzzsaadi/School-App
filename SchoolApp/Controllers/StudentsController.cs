@@ -20,7 +20,14 @@ namespace SchoolApp.Controllers
         // READ - Students ki list
         public async Task<IActionResult> Index()
         {
+            // Session mein visit count store karo
+            int visitCount = HttpContext.Session.GetInt32("VisitCount") ?? 0;
+            visitCount++;
+            HttpContext.Session.SetInt32("VisitCount", visitCount);
+            ViewBag.VisitCount = visitCount;
+
             _logger.LogInformation("Students list dekhi gayi — {Time}", DateTime.Now);
+            
             var students = await _context.Students.ToListAsync();
             return View(students);
         }

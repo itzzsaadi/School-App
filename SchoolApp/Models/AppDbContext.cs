@@ -10,7 +10,6 @@ namespace SchoolApp.Models
             : base(options)
         {
         }
-
         public DbSet<Student> Students { get; set; }
     }
 }

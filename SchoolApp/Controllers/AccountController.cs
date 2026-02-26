@@ -86,6 +86,8 @@ namespace SchoolApp.Controllers
         {
             await _signInManager.SignOutAsync();
             TempData["Success"] = "Logout successful! See you again!";
+            //Reset complete session
+            HttpContext.Session.Clear();
             return RedirectToAction("Login", "Account");
         }
         // GET - Access Denied

@@ -10,6 +10,13 @@ DotNetEnv.Env.Load();
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
+//Sessions
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 // If user is not authenticated, toh login page pe redirect karo
 // If a non-admin user tries to access admin-only page, toh access denied page pe redirect karo
@@ -45,7 +52,7 @@ else
 
 app.UseHttpsRedirection();
 app.UseRouting();
-
+app.UseSession();
 // HTTP Method Override middleware ko add karo
 app.UseHttpMethodOverride();
 
