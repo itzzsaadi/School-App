@@ -190,3 +190,11 @@ C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\Sprache.dll
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\obj\Debug\net10.0\compressed\snzxafazuf-{0}-ehq561qidm-ehq561qidm.gz
+C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\saadn\Desktop\Learning\Database\Database-Migration\SchoolApp\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll

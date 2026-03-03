@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SchoolApp.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +13,39 @@ DotNetEnv.Env.Load();
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
     .AddDefaultTokenProviders();
+
+// JWT Service ko DI container mein add karo taaki hum usko controllers mein inject kar sakein
+builder.Services.AddScoped<JwtService>();
+
+//JWT Authentication
+var jwtSecret = Environment.GetEnvironmentVariable("JWT_SECRET");
+var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
+var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE");
+
+builder.Services.AddAuthentication(options =>
+{
+    // It is set to JWT Bearer authentication scheme, which means that the application will expect 
+    // JWT tokens in the Authorization header of incoming HTTP requests for authentication and 
+    // authorization purposes. leave empty if you want to support multiple authentication schemes and 
+    // specify the scheme in the [Authorize] attribute on controllers or actions.
+    // Identity.Application for cookie-based authentication, JwtBearerDefaults.AuthenticationScheme for JWT authentication, etc.
+    options.DefaultAuthenticateScheme = "Identity.Application"; //JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = "Identity.Application"; //JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtIssuer,
+        ValidAudience = jwtAudience,
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(jwtSecret))
+    };
+});
+
 //Sessions
 builder.Services.AddSession(options =>
 {

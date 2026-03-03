@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SchoolApp.Models;
 
+
+
 namespace SchoolApp.Controllers
 {
     public class AccountController : Controller
