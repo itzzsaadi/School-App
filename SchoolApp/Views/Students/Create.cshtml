@@ -8,7 +8,7 @@
 <body>
     <h1>Naya Student Add Karo</h1>
 
-    <form asp-action="Create" method="post">
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
         <div>
             <label>Name:</label>
             <input asp-for="Name" />
@@ -38,6 +38,10 @@
                     <option value="@course.Id">@course.Name</option>
                 }
             </select>
+        </div>
+        <div>
+            <label>Photo (Optional):</label>
+            <input type="file" name="photo" accept="image/*" />
         </div>
         <button type="submit">Add Student</button>
     </form>

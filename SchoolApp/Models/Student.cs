@@ -20,5 +20,7 @@ namespace SchoolApp.Models
         public int?  CourseId { get; set; }
         // Navigation property for course
         public Course? Course { get; set; }
+        // Photo upload ke liye ek property add karte hain (optional)
+        public string? PhotoPath { get; set; }
     }
 }

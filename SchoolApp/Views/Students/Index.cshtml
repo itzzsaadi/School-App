@@ -17,6 +17,7 @@
             <th>Age</th>
             <th>Phone</th>
             <th>Course</th>
+            <th>Photo</th>
             <th>Actions</th>
         </tr>
 
@@ -29,6 +30,16 @@
                 <td>@student.Age</td>
                 <td>@student.PhoneNumber</td>
                 <td>@(student.Course != null ? student.Course.Name : "No Course")</td>
+                <td>
+                    @if (student.PhotoPath != null)
+                    {
+                        <img src="@student.PhotoPath" width="50" height="50" style="border-radius:50%" />
+                    }
+                    else
+                    {
+                        <span>No Photo</span>
+                    }
+                </td>
                 <td>
                     <a href="/Students/Edit/@student.Id">Edit</a> |
                     <a href="/Students/Delete/@student.Id">Delete</a>

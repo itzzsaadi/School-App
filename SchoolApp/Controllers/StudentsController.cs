@@ -45,11 +45,32 @@ namespace SchoolApp.Controllers
         [Authorize(Roles = "Admin")]
         // Add Student
         [HttpPost]
-        public async Task<IActionResult> Create(Student student)
+        public async Task<IActionResult> Create(Student student, IFormFile? photo)
         {
             if (!ModelState.IsValid)
+            {
+                ViewBag.Courses = await _context.Course.ToListAsync();
                 return View(student);
+            }
+            if (photo != null && photo.Length > 0)
+            {
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
 
+                // Folder nahi hai toh banao
+                if (!Directory.Exists(uploadsFolder))
+                    Directory.CreateDirectory(uploadsFolder);
+
+                // Unique file name banao
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(photo.FileName);
+                var filePath = Path.Combine(uploadsFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await photo.CopyToAsync(stream);
+                }
+
+                student.PhotoPath = "/uploads/" + fileName;
+            }
             _context.Students.Add(student);
             await _context.SaveChangesAsync();
             _logger.LogInformation("Naya student add kiya — {Name}", student.Name);
