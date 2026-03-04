@@ -29,6 +29,16 @@
             <input asp-for="PhoneNumber" />
             <span asp-validation-for="PhoneNumber" style="color:rgb(0, 0, 0)"></span>
         </div>
+        <div>
+            <label>Course (Optional):</label>
+            <select asp-for="CourseId">
+                <option value="">-- Koi Course Nahi --</option>
+                @foreach (var course in ViewBag.Courses)
+                {
+                    <option value="@course.Id">@course.Name</option>
+                }
+            </select>
+        </div>
         <button type="submit">Add Student</button>
     </form>
 

@@ -1,0 +1,48 @@
+@model List<SchoolApp.Models.Course>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Courses List</title>
+</head>
+<body>
+    <h1>Courses ki List</h1>
+
+    @if(TempData["Success"] != null)
+    {
+        <div style="color:green;">@TempData["Success"]</div>
+    }
+
+    @if(User.IsInRole("Admin"))
+    {
+        <a href="/Course/Create">Naya Course Add Karo</a>
+    }
+
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Credit Hours</th>
+            @if(User.IsInRole("Admin"))
+            {
+                <th>Actions</th>
+            }
+        </tr>
+
+        @foreach(var course in Model)
+        {
+            <tr>
+                <td>@course.Id</td>
+                <td>@course.Name</td>
+                <td>@course.CreditHours</td>
+                @if(User.IsInRole("Admin"))
+                {
+                    <td>
+                        <a href="/Course/Delete/@course.Id">Delete</a>
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+</body>
+</html>

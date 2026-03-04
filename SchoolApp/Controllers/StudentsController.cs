@@ -27,15 +27,19 @@ namespace SchoolApp.Controllers
             ViewBag.VisitCount = visitCount;
 
             _logger.LogInformation("Students list dekhi gayi — {Time}", DateTime.Now);
-            
-            var students = await _context.Students.ToListAsync();
+
+            var students = await _context.Students.
+            Include(s => s.Course).
+            ToListAsync();
             return View(students);
         }
         [Authorize(Roles = "Admin")]
         // GET - Form dikhao
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            // Course list dropdown ke liye
+            ViewBag.Courses = await _context.Course.ToListAsync();
             return View();
         }
         [Authorize(Roles = "Admin")]
@@ -56,13 +60,16 @@ namespace SchoolApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            var student = await _context.Students.FindAsync(id);
+            var student = await _context.Students.
+            Include(s => s.Course).
+            FirstOrDefaultAsync(s => s.Id == id);
 
             if (student == null)
             {
                 TempData["Error"] = "TRUE";
                 return RedirectToAction("Index");
             }
+            ViewBag.Courses = await _context.Course.ToListAsync();
             return View(student);
         }
         [Authorize(Roles = "Admin")]
@@ -70,7 +77,9 @@ namespace SchoolApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, Student student)
         {
-            var existing = await _context.Students.FindAsync(id);
+            var existing = await _context.Students.
+            Include(s => s.Course).
+            FirstOrDefaultAsync(s => s.Id == id);
 
             if (existing == null)
             {
@@ -81,6 +90,7 @@ namespace SchoolApp.Controllers
             existing.Email = student.Email;
             existing.Age = student.Age;
             existing.PhoneNumber = student.PhoneNumber;
+            existing.CourseId = student.CourseId;
 
             await _context.SaveChangesAsync();
             _logger.LogInformation("Student update kiya gaya — {Name}", existing.Name);

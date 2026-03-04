@@ -10,7 +10,11 @@ namespace SchoolApp.Models
             : base(options)
         {
         }
+        //add student dbset
         public DbSet<Student> Students { get; set; }
+        //add course dbset
+        public DbSet<Course> Course { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -21,7 +25,5 @@ namespace SchoolApp.Models
                 .HasForeignKey(s => s.CourseId)
                 .OnDelete(DeleteBehavior.SetNull); // Course delete = Student unlink!
         }
-        //add course dbset
-        public DbSet<Course> Courses { get; set; }
     }
 }

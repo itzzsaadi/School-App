@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Student Edit Karo</h1>
-    
+
     <form asp-action="Edit" method="post">
         <input type="hidden" asp-for="Id" />
         <div>
@@ -30,9 +30,20 @@
             <input asp-for="PhoneNumber" />
             <span asp-validation-for="PhoneNumber" style="color:red"></span>
         </div>
+        <div>
+            <label>Course (Optional):</label>
+            <select asp-for="CourseId">
+                <option value="">-- Koi Course Nahi --</option>
+                @foreach (var course in ViewBag.Courses)
+                {
+                    <option value="@course.Id">@course.Name</option>
+                }
+            </select>
+        </div>
         <button type="submit">Update Karo</button>
     </form>
-    
+
     <a href="/Students">Wapas List Pe Jao</a>
 </body>
+
 </html>
